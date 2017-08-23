@@ -31,11 +31,11 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>MinIE - Open Information Extraction System</h1>
+        <h2>What is Open Information Extraction (OIE)?</h2>
         Open Information Extraction (OIE) systems aim to extract unseen relations and their arguments from unstructured text in unsupervised manner. In its simplest form, given a natural language sentence, they extract information in the form of a triple, consisted of subject (S), relation (R) and object (O).
 
         <p>Suppose we have the following input sentence:</br> 
-        <div>"AMD, which is based in the U.S., is a technology company."</div></p>
+        <blockquote>"AMD, which is based in the U.S., is a technology company."</blockquote>
 
         <p>An OIE system could make the following extractions:
           <ul>
@@ -44,7 +44,7 @@
           </ul>
         </p>
 
-        <h2> Extract triples out of sentences </h2>
+        <h2> Extract triples out of a sentence </h2>
         You will need the following imports:
 
         <pre>import de.uni_mannheim.minie.MinIE;
@@ -92,7 +92,113 @@ MinIE minie = new MinIE(sentence, parser, MinIE.Mode.SAFE);</pre>
 Dictionary dict = new Dictionary(filenames);</pre>
       Then, everything else from before stays the same, except for the MinIE constructor:
       <pre>MinIE minie = new MinIE(sentence, sg, MinIE.Mode.DICTIONARY, dict);</pre>
+
+      If you want to access the triples, just use <code>minie.getPropositions()</code>, which is a list of <code>AnnotatedProposition</code>s.
+      For performance reasons, MinIE uses <a href="http://fastutil.di.unimi.it/">FastUtil</a>'s type-specific collections for Java: 
+      <pre><code>import de.uni_mannheim.minie.annotation.AnnotatedProposition;
+  . . . 
+ObjectArrayList&lt;AnnotatedProposition&gt; props = minie.getPropositions();</code></pre>
+
+      Although not recommended, you can still get them as regular lists:
+
+      <pre><code>List&lt;AnnotatedProposition&gt; props = minie.getPropositions();</code></pre>
+
       </p>
+
+      <h2>Extract triples out of multiple sentences</h2>
+      If you have a file where each line is a different sentence, you should use one MinIE object defined out of the loop and re-use it on each iteration:
+
+      <pre>// Initialize the parser and MinIE
+StanfordCoreNLP parser = CoreNLPUtils.StanfordDepNNParser();
+MinIE minie = new MinIE();
+
+// Reading file
+br = new BufferedReader(new FileReader(readFilePath));
+String line = br.readLine();
+
+// Reusable variable
+SemanticGraph sg;
+
+// Iterate through the file and extract triples from the sentences
+do {
+  sg = CoreNLPUtils.parse(parser, line);
+  minie.minimize(line, sg, MinIE.Mode.SAFE);
+
+  // Do stuff with the triples 
+   .... 
+  
+  // Clear the object for re-usability
+  minie.clear()
+
+  line = br.readLine();
+} while (line != null);
+</pre>
+
+      <h2>Access the triples annotations</h2>
+      The triples carry annotations about their polarity, modality, attributions and quantities (for further details please see the paper). 
+      Each annotated triple is stored in an <code>AnnotatedProposition</code> object. All the annotation classes can be found in <code>de.uni_mannheim.minie.annotation</code>.
+      <h3>Polarity</h3>
+      <p>Polarity gives information if the triple is <b>positive (+)</b> or <b>negative (-)</b>. For example, if we have the sentence:</p>
+      <blockquote>"Superman lived in Metropolis."</blockquote>
+      and
+      <blockquote>"Superman never lived in Metropolis."</blockquote>
+      then MinIE will give the following extractions:
+      <ul>
+        <li>("Superman"; "lived in"; "Metropolis") Polarity:(+)</li>
+        <li>("Superman"; "lived in"; "Metropolis") Polarity:(-)</li>
+      </ul>
+      The polarity can be accessed with <code>getPolarity()</code> on the annotated proposition:
+<pre>import de.uni_mannheim.minie.annotation.AnnotatedProposition;
+de.uni_mannheim.minie.annotation.Polarity;
+  . . .
+AnnotatedProposition ap = minie.getProposition(i);
+Polarity p = ap.getPolarity();</pre>
+      
+      <h3>Modality</h3>
+      <p>Modality gives information if the triple is a <b>certainty (CT)</b> or a <b>possibility (PS)</b>. For example, if we have the sentence:</p>
+      <blockquote>"Superman have lived in Metropolis."</blockquote>
+      and
+      <blockquote>"Superman may have lived in Metropolis."</blockquote>
+
+      then MinIE will give the following extractions:
+      <ul>
+        <li>("Superman"; "have lived in"; "Metropolis") (CT)</li>
+        <li>("Superman"; "have lived in"; "Metropolis") (PS)</li>
+      </ul>
+
+      The modality can be accessed with <code>getModality()</code> on the annotated proposition:
+      <pre>import de.uni_mannheim.minie.annotation.AnnotatedProposition;
+de.uni_mannheim.minie.annotation.Modality;
+  . . .
+AnnotatedProposition ap = minie.getProposition(i);
+Modality m = ap.getModality();</pre>
+
+      We refer to the combination of polarity + modality as <b>factuality</b>.
+
+      <h3>Attribution</h3>
+      The Attribution is the supplier of the information and its factuality. Note that the factuality of the triple is not the same as the factuality of the attribution.
+
+      Consider the following sentence:
+      <blockquote>"Pinocchio believes that Superman was not actually born on Krypton."</blockquote>
+      MinIE will extract the following triple:
+        <ul>
+          <li> ("Superman"; "was born on"; "Krypton") <br/>
+          Factuality: (-, CT), Attribution: (Pinocchio, +, PS)</li>
+        </ul>
+
+        The attribution can be accessed with <code>getAttribution()</code>
+        <pre>import de.uni_mannheim.minie.annotation.AnnotatedProposition;
+de.uni_mannheim.minie.annotation.Attribution;
+  . . .
+AnnotatedProposition ap = minie.getProposition(i);
+Attribution attr = ap.getAttribution();
+
+// Get additional metadata for the attribution
+Polarity.Type attrPol = attr.getPolarityType();
+Modality.Type attrMod = attr.getModalityType();
+String predicate = attr.getPredicateVerb(); // "believes"
+AnnotatedPhrase ap = attr.getAttributionPhrase(); // Pinocchio
+</pre>
       </section>
     </div>
 
