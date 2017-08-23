@@ -1,211 +1,74 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>LASH by uma-pi1</title>
+---
+layout: page
+tagline:
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">LASH</h1>
-        <p class="header">Large-Scale Sequence Mining with Hierarchies</p>
+{% for post in paginator.posts %}
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/uma-pi1/lash/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/uma-pi1/lash/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/uma-pi1/lash">View On GitHub</a></li>
-        </ul>
+<article class="home">
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/uma-pi1">uma-pi1</a></p>
+  <span class="post-date">
+    {% assign d = post.date | date: "%d" | plus:'0' %}
+    {{ post.date | date: "%B" }}
+    {% case d %}
+    {% when 1 or 21 or 31 %}{{ d }}st,
+    {% when 2 or 22 %}{{ d }}nd,
+    {% when 3 or 23 %}{{ d }}rd,
+    {% else %}{{ d }}th,
+    {% endcase %}
+    {{ post.date | date: "%Y" }}
+  </span>
 
+  <h2>
+    <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+  </h2>
 
-      </header>
-      <section>
-        <h1>
-<a id="lash-large-scale-sequence-mining-with-hierarchies" class="anchor" href="#lash-large-scale-sequence-mining-with-hierarchies" aria-hidden="true"><span class="octicon octicon-link"></span></a>LASH: Large-Scale Sequence Mining with Hierarchies</h1>
+  <div>
+    {% if post.fullview %}
+    {{ post.content }}
+    {% else %}
+    {% if post.shortinfo %}
+    {{ post.shortinfo }}
+    {% elsif post.description %}
+    {{ post.description }}
+    {% else %}
+    {{ post.excerpt }}
+    {% endif %}
+    {% endif %}
+  </div>
 
-<hr>
+</article>
+{% endfor %}
+<hr/>
 
-<h1>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+<ul class="pager"> 
 
-<hr>
+  {% if paginator.previous_page %}
+  <li class="previous">
+    {% if paginator.previous_page == 1 %}
+    <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
+    {% else %}
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
+    {% endif %}
+  </li>
+  {% else %}
+  <li class="previous disabled">
+    <a>&larr; Newer</a>
+  </li>
+  {% endif %}
+  
+  <li>
+    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  </li>
 
-<p>LASH is a scalable, distributed algorithm for mining sequential patterns in the presence of hierarchies. LASH takes as input a collection of sequences, each composed of items from some application-specific vocabulary. In contrast to traditional approaches to sequence mining, the items in the vocabulary are arranged in a hierarchy: both input sequences and sequential patterns may consist of items from different levels of the hierarchy. For example, the individual words in a text document can be arranged in a <em>syntactic hierarchy</em>: words (e.g., "lives") generalize to their lemma ("live"), which in turn generalize to their respective part-of-speech tag ("verb"). Products in sequences of customer transactions also form a natural <em>product hierarchy</em>, e.g. "Canon EOS 70D" may generalize to "digital camera", which generalizes to "photography", which in turn generalizes to "electronics". Entities such as persons can be arranged in "semantic hierarchies"; e.g., "Barack Obama" may generalize to "politician", "person", "entity". 
-This generalization allows us to find sequences that would otherwise be hidden. For example, in the context of text
-mining, such patterns include generalized <em>n</em>-grams (the ADJ house) or typed relational patterns (PERSON lives in CITY). In both cases, the patterns do not actually occur in the input data, but are useful for language modeling or information extraction tasks. Hierarchies can also be exploited when mining market-basket data or product sequences. For example, users may first buy some camera, then some photography book, and finally some flash. A detailed description about LASH can be found in the <a href="http://dws.informatik.uni-mannheim.de/fileadmin/shared/pi1/kbeedkar/publications/beedkar15lash.pdf">SIGMOD 2015 paper</a>.</p>
+  {% if paginator.next_page %}
+  <li class="next">
+    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
+  </li>
+  {% else %}
+  <li class="next disabled">
+    <a>Older &rarr;</a>        
+  </li>
+  {% endif %}
 
-<hr>
-
-<h1>
-<a id="lash-overview" class="anchor" href="#lash-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>LASH Overview</h1>
-
-<hr>
-
-<p>Given a collection of input sequences of items and an item hierarchy, LASH mines all generalized sub-sequences (along with their frequencies) that:</p>
-
-<ul>
-<li>Occur in at least σ ≥ 1 sequences (support threshold)</li>
-<li>Have length at most λ ≥ 2 (length threshold)</li>
-<li>Have gap at most γ ≥ 0 between consecutive items (gap threshold)</li>
 </ul>
-
-<h1>
-<a id="building-lash" class="anchor" href="#building-lash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building LASH</h1>
-
-<hr>
-
-<ol>
-<li>Prerequisites for building LASH
-
-<ul>
-<li>Java JDK 1.6 or higher</li>
-<li>Maven 3.0 or higher</li>
-<li>Hadoop (for distributed processing)</li>
-</ul>
-</li>
-<li>Set the environment variables</li>
-</ol>
-
-<div class="highlight highlight-sh"><pre>$ <span class="pl-s">export</span> JAVA_HOME=/location/of/java/
-$ <span class="pl-c"># for running on a hadoop cluster</span>
-$ <span class="pl-s">export</span> HADOOP_HOME=/location/of/Hadoop/</pre></div>
-
-<ol>
-<li>Check out the LASH source code to some directory, we will call it here has LASH_HOME</li>
-<li>Compiling</li>
-</ol>
-
-<div class="highlight highlight-sh"><pre>$ <span class="pl-s3">cd</span> LASH_HOME
-$ mvn clean install</pre></div>
-
-<h1>
-<a id="running-lash" class="anchor" href="#running-lash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running LASH</h1>
-
-<hr>
-
-<h2>
-<a id="input-format" class="anchor" href="#input-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input Format</h2>
-
-<h4>
-<a id="input-sequences" class="anchor" href="#input-sequences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input sequences</h4>
-
-<p>The input sequnce file(s) should have the following format:</p>
-
-<pre><code>seqId item_1 item_2 item_3 . . . item_n
-</code></pre>
-
-<p>i.e., the first token of each line (whitespace delimited) becomes the sequence id, and all additional text of the line is interpreted as a sequence of items. </p>
-
-<h4>
-<a id="hierarchies" class="anchor" href="#hierarchies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hierarchies</h4>
-
-<p>Item hierarchies should be specified in a <em>single</em> file using the following format:</p>
-
-<pre><code>item &lt;tab&gt; parent
-</code></pre>
-
-<p>i.e., each line (tab delimited) contains an item and its generalization (parent item). Note that each item in the hierarchy should have only one parent, i.e., the hierarchy should form a forest.</p>
-
-<h2>
-<a id="sequential-mode" class="anchor" href="#sequential-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sequential Mode</h2>
-
-<p>The sequential version of the algorithm runs locally on a single machine. </p>
-
-<div class="highlight highlight-sh"><pre>$ LASH_HOME/bin/lash -i path/to/input/ -H path/to/hierarchy/ -o path/to/output -s σ -g γ -l λ -m s</pre></div>
-
-<h2>
-<a id="distributed-mode" class="anchor" href="#distributed-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Distributed Mode</h2>
-
-<p>To run LASH on a Hadoop cluster, issue the (d)istributed mode.</p>
-
-<div class="highlight highlight-sh"><pre>$ LASH_HOME/bin/lash -i path/to/input/ -H path/to/hierarchy -o path/to/output/ -s σ -g γ -l λ -m d</pre></div>
-
-<blockquote>
-<p>Note: 
-<code>path/to/input/</code> should point to the <strong>directory</strong> containg input sequence file(s).
-<code>path/to/hierarchy</code> should point to the <strong>hierarchy file</strong> (the hierarchy file should not be in the same directory as input sequence files).
-<code>path/to/output/</code> should point to the <strong>directory</strong> where output will be written.</p>
-</blockquote>
-
-<h2>
-<a id="output-format" class="anchor" href="#output-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Output Format</h2>
-
-<pre><code>sequence &lt;tab&gt; frequency
-</code></pre>
-
-<h2>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
-
-<p>Assume that we have the following product sequences in the input file <code>SAMPLE_INPUT/input.txt</code></p>
-
-<pre><code>s1 Cannon_EOS_70D The_Digital_Photography SanDisk_Extreme_32GB Dolica_GX600B200
-s2 Nikon_D5300 On_Photography Ravelli_APGL5
-s3 Canon_SX410 The_Art_of_Photography Kingston_8_GB_microSDHC
-</code></pre>
-
-<p>and a product hierarchy in the file <code>hierarchy.txt</code></p>
-
-<pre><code>Cannon_EOS_70D          DSLR_Camera
-Nikon_D5300             DSLR_Camera
-Canon_SX410             PointShoot_Camera
-DSLR_Camera             Camera
-PointShoot_Camera       Camera
-Dolica_GX600B200        Tripod
-Ravelli_APGL5           Tripod
-The_Digital_Photography Photography_Book
-On_Photography          Photography_Book
-The_Art_of_Photography  Photography_Book
-SanDisk_Extreme_32GB    Flash
-Kingston_8_GB_microSDHC Flash
-</code></pre>
-
-<p>Run the following command to find all <strong>generalized sequences</strong> with minimum support=2, maximum length=3 and maximum gap=1.</p>
-
-<div class="highlight highlight-sh"><pre>bin/lash -i SAMPLE_INPUT/ -H hierarchy.txt -o SAMPLE_OUPUT/ -s 2 -g 1 -l 3 -m s</pre></div>
-
-<p>Sample output:</p>
-
-<pre><code>Camera Photography_Book     3
-Camera Photography_Book Tripod  2
-Camera Photography_Book Flash   2
-Camera Flash    2
-DSLR_Camera Photography_Book    2
-DSLR_Camera Photography_Book Tripod     2
-Photography_Book Tripod     2
-Photography_Book Flash  2
-</code></pre>
-
-<h2>
-<a id="command-line-options" class="anchor" href="#command-line-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line options</h2>
-
-<pre><code> -g,--gap &lt;arg&gt;           maximum gap.
- -H,--hierarchy &lt;arg&gt;     hierarchy path.
- -h,--help                show help.
- -i,--input &lt;arg&gt;         input path.
- -k,--keepFiles &lt;arg&gt;     translated input path.
- -l,--length &lt;arg&gt;        maximum length.
- -m,--mode &lt;arg&gt;          execution mode: (s)equential or (d)istributed.
- -n,--numReducers &lt;arg&gt;   number of reducers.
- -o,--output &lt;arg&gt;        output path.
- -r,--resume &lt;arg&gt;        translated input path.
- -s,--support &lt;arg&gt;       minimum support.
-</code></pre>
-      </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
-  </body>
-</html>
