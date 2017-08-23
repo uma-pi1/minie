@@ -1,38 +1,8 @@
-dbyll
+Slate
 =====
+Slate is responsive theme for GitHub Pages. [Fork it](https://github.com/jsncostello/slate/fork_select) and use it on your own site or generate one automatically using [GitHub Pages](http://pages.github.com).
 
-Open source stylish, minimalistic theme for jekyll. 
-Demo: http://dbtek.github.io/dbyll/; https://www.jekyllthemes.io/theme/14398159/dbyll
+Slate in use:
+![Slate](https://f.cloud.github.com/assets/416727/1730110/c72a2f96-62d3-11e3-9d6f-efc53e24aeb2.png)
 
-## New
-- Dbyll for Ghost is now available. Get it [here](https://github.com/dbtek/dbyll-ghost) now.
-- :new: Check out [Paper](https://github.com/dbtek/paper), new Material Design Jekyll theme.
-
-### Features
-- Responsive layout.
-- Supports tags and categories.
-- Social profile and bio of author.
-- Bootstrap based.
-- Glyphicon and Font-Awesome Icons.
-- Pagination.
-- Syntax highlighting with pygments.
-- Disqus comments.
-- :new: Custom sidebar background image.
-
-
-### Download
-* [Download dbyll](https://github.com/dbtek/dbyll/archive/master.zip)
-
-### Install
-- You need to have [ruby](https://www.ruby-lang.org/en/documentation/installation/) installed in your system.
-- Install bundler which helps in specifying and installing dependencies of any Ruby project. ```gem install bundler```
-- Go to the root of the repo and run this - ```bundle install```
-- Then - ```bundle exec jekyll serve```
-
-### Screenshots
-![dbyll-screenshot](assets/media/dbyll-ss.png)
-
-### License
-- [MIT](http://opensource.org/licenses/MIT)
-
-
+Slate is available under the MIT license.
