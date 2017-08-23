@@ -1,2 +1,4 @@
 name: minie
 markdown: minie
+
+theme: jekyll-theme-midnight
