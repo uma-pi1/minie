@@ -1,4 +1,4 @@
-name: minie
-markdown: minie
-
-theme: jekyll-theme-midnight
+pygments: true
+permalink: /post/:title
+exclude: ['Gemfile','Gemfile.lock','Rakefile','.git']
+paginate: 4

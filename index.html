@@ -1,8 +1,61 @@
 ---
+title: Exemplar
+nav: projects
+subnav: exemplar-home
 layout: default
-title: Hank Quinlan, Horrible Cop
 ---
-<div class="blurb">
-	<h1>Hi there, I'm Hank Quinlan!</h1>
-	<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-</div><!-- /.blurb -->
+<p>
+  This is an example of the default theme I use for my jekyll sites. This
+  theme is used for my <a href="http://tybenz.com">blog</a> and my project sites.
+</p>
+
+<p>
+  This site uses a combination of the following:
+</p>
+
+<ol>
+  <li><a href="http://jekyllrb.com/">Jekyll</a>: Static site generator</li>
+  <li><a href="http://sass-lang.com">Sass</a>: CSS preprocessor</li>
+  <li><a href="http://bourbon.io">Bourbon</a>: Set of generic Sass mixins</li>
+  <li><a href="http://neat.bourbon.io">Neat</a>: Set of grid-based Sass mixins (dependent on Bourbon)</li>
+  <li>Fonts: <a href="http://www.fontsquirrel.com/fonts/bebas-neue">Bebas Neue</a>, <a href="https://github.com/adobe/source-sans-pro">Adobe Source Sans Pro</a>, <a href="https://github.com/adobe/source-code-pro">Adobe Source Code Pro</a></li>
+</ol>
+
+<br />
+
+<article class="post no-border">
+    <div class="post-header">
+        <p class="date">Feb 21, 2012</p>
+        <h1>Posts</h1>
+    </div>
+    <div class="post-body">
+      <p>
+        This is what a post looks like. Straight forward. Date goes above the header. Content goes below the header.
+      </p>
+      <p>Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    </div>
+</article>
+
+<h1>Boxes</h1>
+<div id="projects">
+  {% for page in site.pages %}
+    {% if page.box == true %}
+      {% if page.link %}
+        <a class="project" href="{{ page.link }}">
+      {% else %}
+        <a class="project" href="{{ page.url | replace: '/index.html', '' }}">
+      {% endif %}
+          <div class="project-header">
+              <h2>
+                  {{ page.title }}
+              </h2>
+          </div>
+          <div class="project-body">
+            <p>
+                {{ page.summary }}
+            </p>
+          </div>
+        </a>
+    {% endif %}
+  {% endfor %}
+</div>
