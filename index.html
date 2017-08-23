@@ -134,7 +134,7 @@ do {
 } while (line != null);
 </pre>
 
-      <h2>Access the triples annotations</h2>
+      <h2>Access the triples' annotations</h2>
       The triples carry annotations about their polarity, modality, attributions and quantities (for further details please see the paper). 
       Each annotated triple is stored in an <code>AnnotatedProposition</code> object. All the annotation classes can be found in <code>de.uni_mannheim.minie.annotation</code>.
       <h3>Polarity</h3>
@@ -199,7 +199,11 @@ Modality.Type attrMod = attr.getModalityType();
 String predicate = attr.getPredicateVerb(); // "believes"
 AnnotatedPhrase ap = attr.getAttributionPhrase(); // Pinocchio
 </pre>
+      <!--
       <h3> Quantities </h3>
+      Quantities are phrases expressing an amount of something. For example, the phrases <i>"<b>9</b> cats", "<b>all</b> cats","<b>almost about 100</b> cats"</i> can all be rewritten as "<b>Q</b> cats" where Q = "9"; "all"; "almost about 100" respectively. 
+      -->
+
       </section>
     </div>
 
