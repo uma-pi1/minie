@@ -217,6 +217,14 @@ Full-Width Styles
   margin: 0 auto;
 }
 
+.inner img {
+  float: left;
+  width: 128px;
+  height: 100px;
+  background: #555;
+  margin-right: 10px;
+}
+
 #forkme_banner {
   display: block;
   position: absolute;
