@@ -40,14 +40,59 @@
         <p>An OIE system could make the following extractions:
           <ul>
             <li>("AMD"; "is based in"; "U.S.")</li>
-            <li>("AMD"; "is"; "technology company"</li>
+            <li>("AMD"; "is"; "technology company")</li>
           </ul>
         </p>
 
+        <h2> Extract triples out of sentences </h2>
+        You will need the following imports:
 
-        
+        <pre>import de.uni_mannheim.minie.MinIE;
+import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.semgraph.SemanticGraph;</pre>
+  
+        In order to get extractions from a sentence, you need to perform dependency parse first (with Stanford CoreNLP) and only then perform the extractions:
 
-        
+        <pre>// Input sentence
+String sentence = "Pinocchio believes that the hero Superman was not
+                   actually born on beautiful Krypton.";
+
+// Initialize the parser (this may take a while)
+StanfordCoreNLP parser = CoreNLPUtils.StanfordDepNNParser();
+// Parse the sentence with CoreNLP
+SemanticGraph sg = CoreNLPUtils.parse(parser, sentence);
+
+// Generate the extractions (with "safe mode")
+MinIE minie = new MinIE(sentence, sg, MinIE.Mode.SAFE)</pre>
+      
+      <p>  
+      The extractions and their annotations are stored in <code>minie</code>, more precisely in <code>minie.getPropositions()</code>. 
+      Note that when you use MinIE like this, the parsing is done <i>outside</i> the minie object. This means that all MinIE needs as an input is 
+      the input sentence, its dependency parse stored as a <code>SemanticGraph</code> object and the mode for minimization. This makes MinIE flexible
+      for other parsers.
+      </p>
+
+      <p>
+      If you want the parsing to be done inside MinIE's object, you can do it with just 3 lines of code:
+      </p>
+<pre>StanfordCoreNLP parser = CoreNLPUtils.StanfordDepNNParser();
+String sentence = "Pinocchio believes that the hero Superman was not 
+                   actually born on beautiful Krypton.";        
+MinIE minie = new MinIE(sentence, parser, MinIE.Mode.SAFE);</pre>      
+
+      <p>
+      If you want to use MinIE-D, you need to load a dictionary of multi-word expressions, and then include the dictionary in the constructor as a parameter.
+      First you have to import the dictionary class:
+      <pre>import de.uni_mannheim.utils.Dictionary;</pre>
+      Afterwards, you need to load the dictionary:
+      <pre>String [] filenames = new String [] {
+                              "/minie-resources/nyt-freq-rels-mw.txt", 
+                              "/minie-resources/nyt-freq-args-mw.txt"};
+Dictionary dict = new Dictionary(filenames);</pre>
+      Then, everything else from before stays the same, except for the MinIE constructor:
+      <pre>MinIE minie = new MinIE(sentence, sg, MinIE.Mode.DICTIONARY, dict);</pre>
+      </p>
       </section>
     </div>
 
