@@ -1,4 +1,4 @@
-<img src="https://gkiril.github.io/minie/images/minie_logo.png" align="right" width="42" />
+<img src="https://gkiril.github.io/minie/images/minie_logo.png" align="right" width="150" />
 
 # MinIE - Open Information Extraction system
 
