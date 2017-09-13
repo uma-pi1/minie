@@ -1,2 +1,1 @@
-# minie
-Open Information Extraction system (code coming soon)
+# MinIE - Open Information Extraction system
