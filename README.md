@@ -1,5 +1,6 @@
+<img src="https://gkiril.github.io/minie/images/minie_logo.png" align="right" />
+
 # MinIE - Open Information Extraction system
-![Image of Yaktocat](https://gkiril.github.io/minie/images/minie_logo.png)
 
 An Open Information Extraction system, providing useful extractions:
 * represents contextual information with semantic annotations
