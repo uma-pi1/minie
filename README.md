@@ -78,6 +78,7 @@ String [] filenames = new String [] {"/minie-resources/wiki-freq-args-mw.txt",
                                      "/minie-resources/wiki-freq-rels-mw.txt"};
 Dictionary collocationsDict = new Dictionary(filenames);
 
+// Use MinIE
 MinIE minie = new MinIE(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDict);
 
 ```
@@ -86,7 +87,11 @@ MinIE minie = new MinIE(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDic
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
 * **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D/D17/D17-1277.pdf)
-
+* **Dictionary:** Wikipedia: frequent relations and arguments [zip](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/wiki-freq-args-rels.zip)
+* **Experiments datasets:** datasets from the paper
+  * NYT
+  * Wiki
+  * NYT-10k
 
 ## Citing
 If you use MinIE in your work, please cite our paper:
