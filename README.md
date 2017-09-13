@@ -78,7 +78,7 @@ String [] filenames = new String [] {"/minie-resources/wiki-freq-args-mw.txt",
                                      "/minie-resources/wiki-freq-rels-mw.txt"};
 Dictionary collocationsDict = new Dictionary(filenames);
 
-minie.minimize(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDict);
+MinIE minie = new MinIE(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDict);
 
 ```
 
