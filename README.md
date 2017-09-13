@@ -65,7 +65,8 @@ public class Demo {
 ```
 
 ## Resources
-For more thorough documentation for the code, please visit MinIE's project page.
+
+* **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page] (https://gkiril.github.io/minie/).
 
 
 ## Citing
