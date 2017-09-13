@@ -67,6 +67,21 @@ public class Demo {
 }
 ```
 
+If you want to use MinIE-D, then the only difference would be the way MinIE is called:
+
+```java
+import de.uni_mannheim.utils.Dictionary;
+. . .
+
+// Initialize dictionaries
+String [] filenames = new String [] {"/minie-resources/wiki-freq-args-mw.txt", 
+                                     "/minie-resources/wiki-freq-rels-mw.txt"};
+Dictionary collocationsDict = new Dictionary(filenames);
+
+minie.minimize(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDict);
+
+```
+
 ## Resources
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
