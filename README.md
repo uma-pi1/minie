@@ -83,6 +83,8 @@ MinIE minie = new MinIE(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDic
 
 ```
 
+In `resources/minie-resources/` you can find multi-word dictionaries constructed from WordNet (wn-mwe.txt) and from wiktionary (wiktionary-mw-titles.txt). This will give you some sort of functionality for MinIE-D. The multi-word dictionaries constructed with MinIE-S (as explained in the paper) are not here because of their size. If you want to use them, please refer to the download link in the section "Resources".
+
 ## Resources
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
