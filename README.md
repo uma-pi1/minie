@@ -40,7 +40,8 @@ public class Demo {
         StanfordCoreNLP parser = CoreNLPUtils.StanfordDepNNParser();
         
         // Input sentence
-        String sentence = "The Joker believes that the hero Batman was not actually born in foggy Gotham City.";
+        String sentence = "The Joker believes that the hero Batman was not actually born in 
+                           foggy Gotham City.";
         
         // Generate the extractions (With SAFE mode)
         MinIE minie = new MinIE(sentence, parser, MinIE.Mode.SAFE);
