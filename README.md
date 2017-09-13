@@ -21,7 +21,7 @@ An OIE system aims to make the following extractions:
 ("AMD"; "is"; "technology company")
 ```
 
-# Demo
+## Demo
 
 A short demo:
 
@@ -59,5 +59,18 @@ public class Demo {
         
         System.out.println("\n\nDONE!");
     }
+}
+```
+
+## Citing
+If you use MinIE in your work, please cite our paper:
+
+```
+@inproceedings{gashteovski2017minie,
+  title={MinIE: Minimizing Facts in Open Information Extraction},
+  author={Gashteovski, Kiril and Gemulla, Rainer and Del Corro, Luciano},
+  booktitle={Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing},
+  pages={2620--2630},
+  year={2017}
 }
 ```
