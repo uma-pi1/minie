@@ -25,7 +25,7 @@ An OIE system aims to make the following extractions:
 
 A short demo:
 
-```
+```java
 import de.uni_mannheim.minie.MinIE;
 import de.uni_mannheim.minie.annotation.AnnotatedProposition;
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
@@ -61,6 +61,10 @@ public class Demo {
     }
 }
 ```
+
+## Resources
+For more thorough documentation for the code, please visit MinIE's project page.
+
 
 ## Citing
 If you use MinIE in your work, please cite our paper:
