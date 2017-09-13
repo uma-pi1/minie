@@ -25,7 +25,7 @@ An OIE system aims to make the following extractions:
 
 ## Demo
 
-A short demo:
+In general, the code for running MinIE in all of its modes is almost the same. The only exception is MinIE-D, which requires additional input (list of multi-word dictionaries). You can still use MinIE-D without providing multi-word dictionaries, but then MinIE-D assumes that you provided an empty dictionary, thus minimizing all the words which are candidates for dropping. The following code demo is for MinIE-S (note that you can use the same for the rest of the modes):
 
 ```java
 import de.uni_mannheim.minie.MinIE;
