@@ -67,6 +67,7 @@ public class Demo {
 ## Resources
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
+* **Paper:** appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D/D17/D17-1277.pdf)
 
 
 ## Citing
