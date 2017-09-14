@@ -4,7 +4,7 @@
 
 An Open Information Extraction system, providing useful extractions:
 * represents contextual information with semantic annotations
-* identifies and removes words that are considered overly specific
+* identifies and removing words that are considered overly specific
 * high precision/recall 
 * shorter, semantically enriched extractions
 
