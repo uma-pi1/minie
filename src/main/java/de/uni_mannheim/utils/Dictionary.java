@@ -9,7 +9,11 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
 import edu.stanford.nlp.ling.IndexedWord;
 
-/** A dictionary stores a set of strings. */
+/**
+ * A dictionary stores a set of strings.
+ *
+ * @author Kiril Gashteovski
+ */
 public class Dictionary {
 
     /** Stores the strings */

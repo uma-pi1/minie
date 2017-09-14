@@ -11,6 +11,9 @@ import java.io.IOException;
 
 /**
  * This class acts as a generic interface to the MinIE system
+ *
+ * @author Martin Achenbach
+ * @author Kiril Gashteovski
  */
 public class Extractor {
     private StanfordCoreNLP parser;

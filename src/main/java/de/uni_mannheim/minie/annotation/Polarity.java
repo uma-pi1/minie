@@ -14,6 +14,11 @@ import de.uni_mannheim.constant.SEPARATOR;
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 import de.uni_mannheim.utils.Dictionary;
 
+/**
+ * Annotation for polarity
+ *
+ * @author Kiril Gashteovski
+ */
 public class Polarity {
     /** Annotations for polarity, can be just "POSTIIVE" or "NEGATIVE" */
     public static enum Type {POSITIVE, NEGATIVE};

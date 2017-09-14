@@ -1,5 +1,8 @@
 package de.uni_mannheim.constant;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class NE_TYPE {
     public static final String MISC = "MISC";
     public static final String PERSON = "PERSON";

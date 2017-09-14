@@ -1,5 +1,8 @@
 package de.uni_mannheim.constant;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class CHARACTER {
     public static String VBAR = "|";
     public static String QMARK = "?";

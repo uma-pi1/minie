@@ -1,5 +1,8 @@
 package de.uni_mannheim.constant;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class CLAUSE_TYPE {
     public static final String ST_SV = "SV";
     public static final String ST_SVA = "SVA";

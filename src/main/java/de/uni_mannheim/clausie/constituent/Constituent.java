@@ -2,7 +2,13 @@ package de.uni_mannheim.clausie.constituent;
 
 import edu.stanford.nlp.ling.IndexedWord;
 
-/** A constituent of a clause. */
+/**
+ * A constituent of a clause.
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
+ */
 public abstract class Constituent {
 
     // -- types -----------------------------------------------------------------------------------

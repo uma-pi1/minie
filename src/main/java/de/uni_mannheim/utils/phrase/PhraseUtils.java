@@ -5,6 +5,9 @@ import de.uni_mannheim.constant.SEPARATOR;
 import de.uni_mannheim.minie.annotation.AnnotatedPhrase;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class PhraseUtils {
     /**
      * Given a list of phrases, return their words concatenated into one string.

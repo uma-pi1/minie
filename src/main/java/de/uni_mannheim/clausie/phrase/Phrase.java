@@ -13,6 +13,15 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import de.uni_mannheim.constant.SEPARATOR;
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
+/**
+ * An object representing a phrase
+ * @param: wordList: A list of words of the phrase
+ * @param: phraseGraph: the dependency parse graph of the phrase
+ * @param: root: the root of the phrase
+ * @param: tds: list of typed dependencies for the phrase
+ *
+ * @author Kiril Gashteovski
+ */
 public class Phrase {
     /** A list of words of the phrase **/
     protected ObjectArrayList<IndexedWord> wordList;

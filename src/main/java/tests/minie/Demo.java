@@ -6,6 +6,9 @@ import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class Demo {
     public static void main(String args[]) {
         // Dependency parsing pipeline initialization

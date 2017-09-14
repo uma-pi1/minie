@@ -18,6 +18,9 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class RelAggressiveMinimization {
     /**
      * Always minimize the subject towards the root word

@@ -11,7 +11,9 @@ import edu.stanford.nlp.semgraph.SemanticGraph;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
-
+/**
+ * @author Kiril Gashteovski
+ */
 public class FrequencyCandidates {
     /** The phrase from which the frequency candidates are generated from **/
     private Phrase phrase;

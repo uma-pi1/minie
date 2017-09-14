@@ -13,6 +13,9 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class RelDictionaryMinimization {
     /**
      * Minimize only the relations that are considered to have "non-frequent patterns"

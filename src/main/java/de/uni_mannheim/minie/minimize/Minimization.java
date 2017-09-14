@@ -26,16 +26,19 @@ import edu.stanford.nlp.util.CoreMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
+/**
+ * A class containing elements for minimization.
+ * @param phrase: the phrase being considered for minimization
+ * @param sg: the semantic graph of the sentence from which the phrase is derived
+ * @param droppedWords: set of words being dropped
+ * @param tPattern: reusable variable (token regex pattern)
+ * @param tMatcher: reusable variable (token regex matcher)
+ * @param mwe: dictionary of multi-word expressions
+ *
+ * @author Kiril Gashteovski
+ */
 public class Minimization {
-    /**
-     * A class containing elements for minimization. 
-     * @param phrase: the phrase being considered for minimization
-     * @param sg: the semantic graph of the sentence from which the phrase is derived
-     * @param droppedWords: set of words being dropped 
-     * @param tPattern: reusable variable (token regex pattern)
-     * @param tMatcher: reusable variable (token regex matcher)
-     * @param mwe: dictionary of multi-word expressions
-     */
+
     private AnnotatedPhrase phrase;
     private SemanticGraph sg;
     private ObjectOpenHashSet<String> mwe;

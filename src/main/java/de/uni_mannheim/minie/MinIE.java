@@ -44,6 +44,9 @@ import edu.stanford.nlp.util.CoreMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class MinIE {
     /** List of annotated propositions **/
     private ObjectArrayList<AnnotatedProposition> propositions;

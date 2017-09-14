@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import de.uni_mannheim.utils.Dictionary;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class WORDS {
     // A set of non-subsective modal adjectives
     public static Dictionary NON_SUBSECTIVE_JJ_MODAL;

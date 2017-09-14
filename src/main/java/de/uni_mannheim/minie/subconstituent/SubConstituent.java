@@ -17,6 +17,9 @@ import de.uni_mannheim.constant.SEPARATOR;
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 import de.uni_mannheim.utils.fastutils.FastUtil;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class SubConstituent {
     /** Sentence semantic graph **/
     private SemanticGraph sg;

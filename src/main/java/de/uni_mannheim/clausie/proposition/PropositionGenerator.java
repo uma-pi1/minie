@@ -18,7 +18,13 @@ import edu.stanford.nlp.trees.EnglishGrammaticalRelations;
 import edu.stanford.nlp.trees.GrammaticalRelation;
 import edu.stanford.nlp.semgraph.SemanticGraph;
 
-/** Handles the generation of propositions out of a given clause */
+/**
+ * Handles the generation of propositions out of a given clause
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
+ */
 public abstract class PropositionGenerator {
     
     ClausIE clausIE;

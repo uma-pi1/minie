@@ -1,5 +1,8 @@
 package de.uni_mannheim.constant;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class REGEX {
     /** Regex for "DT* VB+ NN+" **/
     public static final String T_DT_VB_NN_END = "[{tag:/DT/}]*[{tag:/VB.*/}]+[{tag:/NN.*/}]+";

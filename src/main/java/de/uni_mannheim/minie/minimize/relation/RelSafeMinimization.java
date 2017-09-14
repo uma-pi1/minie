@@ -18,6 +18,9 @@ import edu.stanford.nlp.util.CoreMap;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class RelSafeMinimization {
     /**
      * Minimize only the relations that are considered to have "safe patterns"

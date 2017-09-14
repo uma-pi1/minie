@@ -3,14 +3,17 @@ package de.uni_mannheim.minie.annotation;
 import de.uni_mannheim.constant.CHARACTER;
 import de.uni_mannheim.constant.SEPARATOR;
 
+/**
+ * A class representing the attribution
+ * @param attributionPhrase: a phrase containing the words for the attribution
+ * @param modality: the modality of the attribution (possibility or certainty)
+ * @param polarity: the polarity of the attribution (positive or negative)
+ * @param predicateVerb: the predicate verb (as a string in its lemma version)
+ *
+ * @author Kiril Gashteovski
+ */
+
 public class Attribution {
-    /**
-     * A class representing the attribution
-     * @param attributionPhrase: a phrase containing the words for the attribution
-     * @param modality: the modality of the attribution (possibility or certainty)
-     * @param polarity: the polarity of the attribution (positive or negative)
-     * @param predicateVerb: the predicate verb (as a string in its lemma version)
-     */
     private AnnotatedPhrase attributionPhrase;
     private Modality.Type modality;
     private Polarity.Type polarity;

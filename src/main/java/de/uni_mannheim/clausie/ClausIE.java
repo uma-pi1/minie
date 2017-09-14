@@ -19,6 +19,12 @@ import de.uni_mannheim.clausie.proposition.PropositionGenerator;
 import it.unimi.dsi.fastutil.booleans.BooleanArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
+/**
+ * Main class for ClausIE
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ */
 public class ClausIE {
     // This should be a collection
     SemanticGraph semanticGraph;

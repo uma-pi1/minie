@@ -18,6 +18,9 @@ import de.uni_mannheim.utils.Dictionary;
 
 /**
  * Helper class for MinIE
+ *
+ * @author Martin Achenbach
+ * @author Kiril Gashteovski
  */
 public class Utils {
     /** MinIE default dictionaries **/

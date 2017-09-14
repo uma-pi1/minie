@@ -14,9 +14,10 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
  * Note that the xcomp relation refers to a clause with an external subject.
  * The constituent stores the set of clauses that can be derived from the xcomp 
  * clause. 
- * 
- * @date $LastChangedDate: 2013-04-23 00:04:28 +0200 (Tue, 23 Apr 2013) $
- * @version $LastChangedRevision: 734 $ 
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
  */
 public class XcompConstituent extends IndexedConstituent {
 	

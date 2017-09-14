@@ -18,6 +18,9 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
  * Note that the {@link SemanticGraph} may or may not match the graph of the input sentences or the
  * other constituents of the same clause. For example, the semantic graphs are modified when
  * processing of coordinating conjunctions.
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
  */
 public class IndexedConstituent extends Constituent {
 

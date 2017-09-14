@@ -4,7 +4,12 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import de.uni_mannheim.clausie.phrase.Phrase;
 import edu.stanford.nlp.ling.IndexedWord;
 
-/** A phrase expression of a constituent. The constituent is represented as a Phrase */
+/**
+ * A phrase expression of a constituent. The constituent is represented as a Phrase
+ *
+ * @author Kiril Gashteovski
+ *
+ */
 public class PhraseConstituent extends Constituent {
     /** The constituent as a phrase **/
     private Phrase phrase;

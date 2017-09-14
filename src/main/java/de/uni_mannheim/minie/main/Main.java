@@ -27,6 +27,9 @@ import de.uni_mannheim.utils.minie.Utils;
 
 /**
  * Main class that acts as a console interface to the MinIE system
+ *
+ * @author Martin Achenbach
+ * @author Kiril Gashteovski
  */
 public class Main {
     /** used MinIE mode **/

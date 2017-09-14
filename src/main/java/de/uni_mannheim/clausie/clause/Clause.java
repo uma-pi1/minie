@@ -15,6 +15,9 @@ import edu.stanford.nlp.ling.IndexedWord;
 /**
  * A clause is a basic unit of a sentence. In ClausIE, a clause consists of a
  * set of constituents (at least a subject and a verb) and a type.
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
  */
 public class Clause {
     // -- Type definition

@@ -18,8 +18,9 @@ import edu.stanford.nlp.ling.IndexedWord;
 
 /** Options handles the ClausIe settings which should be loaded out of a configuration file.
  *  
- * @date $LastChangedDate: 2013-04-24 11:35:23 +0200 (Wed, 24 Apr 2013) $
- * @version $LastChangedRevision: 739 $ */
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ */
 public class Options {
 	// informatin
 	public Dictionary dictCopular;

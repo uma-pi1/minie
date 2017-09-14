@@ -9,6 +9,11 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
+/**
+ * Annotation for quantity
+ *
+ * @author Kiril Gashteovski
+ */
 public class Quantity {
     /** The quantity words */
     private ObjectArrayList<IndexedWord> qWords; 

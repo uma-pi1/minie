@@ -16,6 +16,9 @@ import edu.stanford.nlp.ling.tokensregex.TokenSequencePattern;
 import edu.stanford.nlp.semgraph.SemanticGraph;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class ImplicitExtractions {
     /** Token sequence pattern **/
     private TokenSequencePattern tPattern;

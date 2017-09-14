@@ -12,6 +12,9 @@ import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.util.CoreMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class ObjDictionaryMinimization {
     /**
      * Minimize only the objects that are considered to have "non-frequent patterns"

@@ -10,8 +10,10 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 /** Stores a proposition.
  * 
- * @date $LastChangedDate: 2013-04-24 11:54:36 +0200 (Wed, 24 Apr 2013) $
- * @version $LastChangedRevision: 741 $ */
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
+ */
 public class Proposition {
 	
 	/** Constituents of the proposition */

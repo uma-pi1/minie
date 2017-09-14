@@ -10,6 +10,9 @@ import edu.stanford.nlp.util.CoreMap;
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class ObjSafeMinimization {
     /**
      * Minimize only the objects that are considered to have "safe patterns"

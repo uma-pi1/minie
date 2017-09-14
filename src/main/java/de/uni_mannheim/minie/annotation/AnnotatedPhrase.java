@@ -22,12 +22,14 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
-public class AnnotatedPhrase extends Phrase{
-    /**
-     * The annotated phrase is a phrase that holds some sort of annotations. For now, the only annotation
-     * that a phrase has are the quantities. Each phrase has a list of quantities. 
-     */
-    
+/**
+ * The annotated phrase is a phrase that holds some sort of annotations. For now, the only annotation
+ * that a phrase has are the quantities. Each phrase has a list of quantities.
+ *
+ * @author Kiril Gashteovski
+ *
+ */
+public class AnnotatedPhrase extends Phrase {
     /** The list of quantities for the phrase **/
     private ObjectArrayList<Quantity> quantities;
     /** The list of dropped edges **/

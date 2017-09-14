@@ -23,6 +23,11 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
 import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
 
+/**
+ * Annotation for modality
+ *
+ * @author Kiril Gashteovski
+ */
 public class Modality {
     /** Annotations for modality, can be just "CERTAINTY" or "POSSIBILITY" */
     public static enum Type {CERTAINTY, POSSIBILITY};

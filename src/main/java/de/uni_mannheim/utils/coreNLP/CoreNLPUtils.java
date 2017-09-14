@@ -31,6 +31,9 @@ import de.uni_mannheim.constant.SEPARATOR;
 import de.uni_mannheim.constant.WORDS;
 import de.uni_mannheim.utils.fastutils.FastUtil;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class CoreNLPUtils {
     /**
      * Initializes and returns StanfordCoreNLP pipeline

@@ -19,9 +19,10 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 
 /** This class provides a set of utilities to work with {@link SemanticGraph}
  * For details on the Dependency parser @see <a href="nlp.stanford.edu/software/dependencies_manual.pdf">the Stanford Parser manual  
- * 
- * @date $LastChangedDate: 2013-04-24 11:35:23 +0200 (Wed, 24 Apr 2013) $
- * @version $LastChangedRevision: 739 $ */
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ */
 public class DpUtils {
     
     public static final int MAX_RECURSION_ITERATIONS = 500;

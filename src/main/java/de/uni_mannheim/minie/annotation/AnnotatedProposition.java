@@ -6,6 +6,9 @@ import de.uni_mannheim.constant.WORDS;
 import edu.stanford.nlp.ling.IndexedWord;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class AnnotatedProposition {
     /** The annotated proposition is a triple, a list of annotated phrases **/
     private ObjectArrayList<AnnotatedPhrase> triple;

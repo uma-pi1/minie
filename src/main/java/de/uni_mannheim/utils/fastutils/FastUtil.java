@@ -11,6 +11,9 @@ import java.util.Set;
 
 import it.unimi.dsi.fastutil.booleans.BooleanArrayList;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class FastUtil {
     /**
      * Given an IntArrayList object, sort it, and return an integer array, containing the sorted elements

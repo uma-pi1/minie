@@ -34,6 +34,10 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
  * 
  * {@code detectClauses} first detects the type of clause to be generated based on syntactic relations
  * and once a clause is detected a given method is used to create a {@link Clause}.
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
  */
 public class ClauseDetector {
 

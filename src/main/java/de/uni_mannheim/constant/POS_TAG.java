@@ -1,5 +1,8 @@
 package de.uni_mannheim.constant;
 
+/**
+ * @author Kiril Gashteovski
+ */
 public class POS_TAG {
     public static final String CD = "CD";
     public static final String DT = "DT";

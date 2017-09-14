@@ -25,6 +25,10 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
  * the source of a significant loss in precision by ClausIE.
  * 
  * Code is not clean or optimally efficient. More work needs to be done in how to handle CCs.
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
  */
 public class ProcessConjunctions {
 	

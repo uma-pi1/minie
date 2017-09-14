@@ -17,7 +17,13 @@ import edu.stanford.nlp.semgraph.SemanticGraph;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 
 
-/** Currently the default proposition generator generates 3-ary propositions out of a clause */
+/**
+ * Currently the default proposition generator generates 3-ary propositions out of a clause
+ *
+ * @author Luciano del Corro
+ * @author Kiril Gashteovski
+ *
+ * */
 public class DefaultPropositionGenerator extends PropositionGenerator {
     public DefaultPropositionGenerator(ClausIE clausIE) {
         super(clausIE);
