@@ -88,7 +88,7 @@ In `resources/minie-resources/` you can find multi-word dictionaries constructed
 ## Resources
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
-* **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D/D17/D17-1277.pdf)
+* **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D17-1278)
 * **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/wiki-freq-args-rels.zip)
 * **Experiments datasets:** datasets from the paper
   * [NYT](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/NYT.zip)
