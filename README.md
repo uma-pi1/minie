@@ -89,11 +89,11 @@ In `resources/minie-resources/` you can find multi-word dictionaries constructed
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
 * **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D17-1278)
-* **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/wiki-freq-args-rels.zip)
+* **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/wiki-freq-args-rels.zip)
 * **Experiments datasets:** datasets from the paper
-  * [NYT](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/NYT.zip)
-  * [Wiki](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/Wiki.zip)
-  * [NYT-10k](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/nyt10k.zip)
+  * [NYT](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/NYT.zip)
+  * [Wiki](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/Wiki.zip)
+  * [NYT-10k](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/nyt10k.zip)
 
 ## Citing
 If you use MinIE in your work, please cite our paper:
