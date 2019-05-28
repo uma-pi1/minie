@@ -21,7 +21,7 @@ import de.uni_mannheim.utils.Dictionary;
  */
 public class Polarity {
     /** Annotations for polarity, can be just "POSTIIVE" or "NEGATIVE" */
-    public static enum Type {POSITIVE, NEGATIVE};
+    public enum Type {POSITIVE, NEGATIVE}
     
     /** Static strings for polarity **/
     public static String ST_POSITIVE = "POSITIVE";
@@ -69,8 +69,8 @@ public class Polarity {
     /** Default constructor. Assumes positive polarity type by default **/
     public Polarity(){
         this.polarityType = Type.POSITIVE;
-        this.negativeEdges = new ObjectArrayList<SemanticGraphEdge>();
-        this.negativeWords = new ObjectArrayList<IndexedWord>();
+        this.negativeEdges = new ObjectArrayList<>();
+        this.negativeWords = new ObjectArrayList<>();
     }
     
     /**
@@ -79,8 +79,8 @@ public class Polarity {
      */
     public Polarity(Polarity.Type t){
         this.polarityType = t;
-        this.negativeEdges = new ObjectArrayList<SemanticGraphEdge>();
-        this.negativeWords = new ObjectArrayList<IndexedWord>();
+        this.negativeEdges = new ObjectArrayList<>();
+        this.negativeWords = new ObjectArrayList<>();
     }
     /**
      * Copy constructor
@@ -136,8 +136,8 @@ public class Polarity {
     /** Clear the polarity object, i.e. set its default values (type = positive, neg. words and edges are empty lists) */
     public void clear(){
         this.polarityType = Type.POSITIVE;
-        this.negativeEdges = new ObjectArrayList<SemanticGraphEdge>();
-        this.negativeWords = new ObjectArrayList<IndexedWord>();
+        this.negativeEdges = new ObjectArrayList<>();
+        this.negativeWords = new ObjectArrayList<>();
     }
     
     /**
@@ -190,7 +190,7 @@ public class Polarity {
     /** Given a polarity object, convert it into a string */
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append(CHARACTER.LPARENTHESIS);
         if (this.polarityType == Polarity.Type.POSITIVE)
             sb.append(CHARACTER.PLUS);

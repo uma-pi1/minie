@@ -28,13 +28,7 @@ public class REGEX {
     
     /** Regex for "ORG IN LOC" **/
     public static final String T_ORG_IN_LOC = "[{ner:ORGANIZATION}]+[{tag:IN; ner:O}]+[{ner:LOCATION}]+";
-    
-    /** Regex for "from DATE to DATE" **/
-    public static final String T_FROM_DATE_TO_DATE = "[{lemma:from}] [{ner:DATE}]+ [{lemma:to}] [{ner:DATE}]+";
-    
-    /** Regex for "be VB+ to VB+" **/
-    public static final String T_BE_VERB_TO_VERB = "[{lemma:be}] [{tag:/VB.*/}]+ [{lemma:to}] [{tag:/VB.*/}]+";
-    
+
     /** Regex for "ORG POS? PERSON" **/
     public static final String T_ORG_PERSON = "[{ner:ORGANIZATION}]+ [{tag:POS; ner:/O/}]? [{ner:PERSON}]+";
     
@@ -147,20 +141,12 @@ public class REGEX {
     
     /** Regex for "TO [VB|RP]* RB? IN" **/
     public static final String T_TO_VP_IN = "[{tag:TO}] [{tag:/VB.*/} | {tag:RP}]* [{tag:/RB.*/}]?[{tag:IN}]*";
-    
-    /** Regex for "NP? [IN|TO] NP" **/
-    public static final String T_NP_IN_NP = "[{tag:/RB.*/} | {tag:/JJ.*/} | {tag:DT} | {tag:/PRP.*/}][{tag:/NN.*/}]*"
-            + "[{tag:IN} | {tag:TO}]"
-            + "[{tag:/RB.*/} | {tag:/JJ.*/} | {tag:DT} | {tag:/PRP.*/}]*[{tag:/NN.*/}]";
-    
+
     /** Regex for "[RB|JJ]+ NER" **/
     public static final String T_RB_JJ_NER = "[{tag:/RB.*/} | {tag:/JJ.*/}]+ "
             + "([{ner:ORGANIZATION}]+ | [{ner:PERSON}]+ | [{ner:LOCATION}]+ | [{ner:DATE}]+ | [{ner:NUMBER}]+ | "
             + " [{ner:MISC}]+ | [{ner:DURATION}]+ | [{ner:MONEY}]+ | [{ner:TIME}]+ | [{ner:ORDINAL}]+ | "
             + " [{ner:SET}]+)";
-    
-    /** Token regex pattern: check for sequence of numerics **/
-    //public static final String IS_NUMERIC = "[ {word::IS_NUM} | {tag:CD} ]+";
     
     /** Token regex pattern: detect already annotated quantities which are next to each other **/
     public static final String ADJACENT_QUANTITIES = "[{tag:/QUANTITY/}][{lemma:of}]?[{tag:/PRP.*/}]?[{tag:/QUANTITY/}]";
@@ -172,9 +158,6 @@ public class REGEX {
     /** Token regex pattern same as QUANTITY_SEQUENCE, only it also includes 'no' as a quantity (e.g. 'no people') **/
     public static final String QUANTITY_SEQUENCE_WITH_NO = "[ {lemma:/some|all|any|no|each|every|half|many|various|several|"
                                                             + "numerous|few|much/} | {word::IS_NUM} | {tag:CD} | {ner:PERCENT}]+";
-    
-    /** Regex for "QUANTITY of" **/
-    //public static final String QUANTITY_OF = "[{ner:QUANTITY}] [{lemma:of}]";
     
     /** Regex for spotting 'safe determiners' i.e. 'a', 'an' or 'the' **/
     public static final String SAFE_DETERMINER = "[{lemma:/a/} | {lemma:/an/} | {lemma:/the/}]";

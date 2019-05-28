@@ -23,27 +23,59 @@
         <artifactId>fastutil</artifactId>
         <version>8.1.0</version>
     </dependency>
-    
+
     <!-- Stanford CoreNLP 3.8.0 dependencies -->
     <dependency>
         <groupId>edu.stanford.nlp</groupId>
         <artifactId>stanford-corenlp</artifactId>
         <version>3.8.0</version>
-    </dependency>    
+    </dependency>
     <dependency>
         <groupId>edu.stanford.nlp</groupId>
         <artifactId>stanford-corenlp</artifactId>
         <version>3.8.0</version>
         <classifier>models</classifier>
     </dependency>
-    
+
+    <!-- Jersey 2.26 dependencies -->
+    <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-grizzly2-http</artifactId>
+        <version>2.26</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.inject</groupId>
+        <artifactId>jersey-hk2</artifactId>
+        <version>2.26</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-json-jackson</artifactId>
+        <version>2.26</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-json-processing</artifactId>
+        <version>2.26</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-multipart</artifactId>
+        <version>2.26</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-sse</artifactId>
+        <version>2.26</version>
+    </dependency>
+
     <dependency>
         <groupId>net.sf.jopt-simple</groupId>
         <artifactId>jopt-simple</artifactId>
         <version>6.0-alpha-1</version>
     </dependency>
   </dependencies>
-  
+
   <build>
       <resources>
           <resource>

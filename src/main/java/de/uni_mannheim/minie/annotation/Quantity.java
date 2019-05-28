@@ -53,8 +53,8 @@ public class Quantity {
     
     /** Default constructor **/
     public Quantity() {
-        this.qWords = new ObjectArrayList<IndexedWord>();
-        this.qEdges = new ObjectArrayList<SemanticGraphEdge>();
+        this.qWords = new ObjectArrayList<>();
+        this.qEdges = new ObjectArrayList<>();
         this.id = CHARACTER.EMPTY_STRING;
     }
     /** Copy constructor **/
@@ -121,7 +121,7 @@ public class Quantity {
     /** Given a quantity object, convert it into a string */
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         
         // Write the words in the format (WORD_1 WORD_2 ... WORD_n) 
         //sb.append(CHARACTER.LPARENTHESIS);

@@ -40,9 +40,9 @@ public class AnnotatedPhrase extends Phrase {
     /** Default constructor **/
     public AnnotatedPhrase(){
         super();
-        this.quantities = new ObjectArrayList<Quantity>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.quantities = new ObjectArrayList<>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -53,8 +53,8 @@ public class AnnotatedPhrase extends Phrase {
     public AnnotatedPhrase(Phrase p, ObjectArrayList<Quantity> q){
         super(p);
         this.quantities = q;
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -64,8 +64,8 @@ public class AnnotatedPhrase extends Phrase {
     public AnnotatedPhrase(ObjectArrayList<IndexedWord> wList) {
         super(wList);
         this.quantities = new ObjectArrayList<>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -77,8 +77,8 @@ public class AnnotatedPhrase extends Phrase {
     public AnnotatedPhrase(ObjectArrayList<IndexedWord> wList, IndexedWord root) {
         super(wList, root);
         this.quantities = new ObjectArrayList<>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -89,9 +89,9 @@ public class AnnotatedPhrase extends Phrase {
      */
     public AnnotatedPhrase(ObjectArrayList<IndexedWord> wList, SemanticGraph sg){
         super(wList, sg);
-        this.quantities = new ObjectArrayList<Quantity>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.quantities = new ObjectArrayList<>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -103,9 +103,9 @@ public class AnnotatedPhrase extends Phrase {
      */
     public AnnotatedPhrase(ObjectArrayList<IndexedWord> wList, SemanticGraph sg, IndexedWord root){
         super(wList, sg, root);
-        this.quantities = new ObjectArrayList<Quantity>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.quantities = new ObjectArrayList<>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -114,9 +114,9 @@ public class AnnotatedPhrase extends Phrase {
      */
     public AnnotatedPhrase(Phrase p){
         super(p);
-        this.quantities = new ObjectArrayList<Quantity>();
-        this.droppedEdges = new ObjectOpenHashSet<SemanticGraphEdge>();
-        this.droppedWords = new ObjectOpenHashSet<IndexedWord>();
+        this.quantities = new ObjectArrayList<>();
+        this.droppedEdges = new ObjectOpenHashSet<>();
+        this.droppedWords = new ObjectOpenHashSet<>();
     }
     
     /**
@@ -170,8 +170,8 @@ public class AnnotatedPhrase extends Phrase {
      */
     public void detectQuantities(SemanticGraph sentSemGraph, int i){
         // Quantity words and edges
-        ObjectArrayList<IndexedWord> qWords = new ObjectArrayList<IndexedWord>();
-        ObjectArrayList<SemanticGraphEdge> qEdges = new ObjectArrayList<SemanticGraphEdge>();
+        ObjectArrayList<IndexedWord> qWords;
+        ObjectArrayList<SemanticGraphEdge> qEdges = new ObjectArrayList<>();
         
         // Tokens regex patterns
         String tokenRegexPattern;
@@ -273,7 +273,7 @@ public class AnnotatedPhrase extends Phrase {
     private void setQuantitiesFromWordList(ObjectArrayList<IndexedWord> qWords, ObjectArrayList<SemanticGraphEdge> qEdges, 
                                             SemanticGraph sentSemGraph, int i, int j){
         // Quantity ID
-        StringBuffer sbId = new StringBuffer();
+        StringBuilder sbId = new StringBuilder();
         if (i == 0)
             sbId.append(Quantity.SUBJECT_ID);
         else if (i == 1)
@@ -304,7 +304,7 @@ public class AnnotatedPhrase extends Phrase {
      */
     public void annotateQuantities(int j){
         IndexedWord w;
-        StringBuffer sbID = new StringBuffer();
+        StringBuilder sbID = new StringBuilder();
         if (this.quantities.size() > 0){
             // Replacing word
             for (int i = 0; i < this.quantities.size(); i++){
@@ -329,6 +329,10 @@ public class AnnotatedPhrase extends Phrase {
         // Merge the adjacent quantities
         this.mergeAdjacentQuantities();
     }
+
+    public boolean isOneNER() {
+        return CoreNLPUtils.isOneNER(this.wordList);
+    }
     
     /**
      * When there are already annotated quantities, merge the ones which are right next to each other in a sequence.
@@ -339,7 +343,7 @@ public class AnnotatedPhrase extends Phrase {
         ObjectArrayList<SemanticGraphEdge> mergedEdges = new ObjectArrayList<>();
         ObjectArrayList<String> qIds = new ObjectArrayList<>();
         ObjectOpenHashSet<IndexedWord> remWords = new ObjectOpenHashSet<>();
-        ObjectArrayList<IndexedWord> matches = new ObjectArrayList<>();
+        ObjectArrayList<IndexedWord> matches;
         
         // Token regex pattern and matcher
         TokenSequencePattern tPattern = TokenSequencePattern.compile(REGEX.ADJACENT_QUANTITIES);
@@ -406,7 +410,7 @@ public class AnnotatedPhrase extends Phrase {
     
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (IndexedWord w: this.wordList) {
             sb.append(w.word());
             sb.append(SEPARATOR.SPACE);

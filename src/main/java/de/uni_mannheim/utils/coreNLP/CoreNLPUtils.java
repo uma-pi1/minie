@@ -1062,4 +1062,32 @@ public class CoreNLPUtils {
         
         return semanticGraph;
     }
+
+    public static boolean isOneNER(ObjectArrayList<IndexedWord> wordList) {
+        String firstType = wordList.get(0).ner();
+        if (firstType.equals(NE_TYPE.NO_NER)) {
+            return false;
+        }
+        boolean isOneNER = true;
+        for (IndexedWord w: wordList) {
+            if (!w.ner().equals(firstType)) {
+                isOneNER = false;
+            }
+        }
+        return isOneNER;
+    }
+
+    /**
+     * Given a list of words, check if there is a verb in the list
+     * @param words: list of indexed words
+     * @return true -> if there is a verb in the list of words, false -> otherwise
+     */
+    public static boolean hasVerb(ObjectArrayList<IndexedWord> words){
+        for (IndexedWord word: words){
+            if (isVerb(word.tag())) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

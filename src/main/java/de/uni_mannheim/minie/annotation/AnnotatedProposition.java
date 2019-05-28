@@ -23,7 +23,7 @@ public class AnnotatedProposition {
     
     /** Default constructor: empty triple, default attribution, polarity, modality **/
     public AnnotatedProposition(){
-        this.triple = new ObjectArrayList<AnnotatedPhrase>();
+        this.triple = new ObjectArrayList<>();
         this.attribution = new Attribution();
         this.polarity = new Polarity();
         this.modality = new Modality();
@@ -171,7 +171,7 @@ public class AnnotatedProposition {
     
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         
         // Write the triple
         sb.append(this.getTripleAsString());
@@ -207,7 +207,7 @@ public class AnnotatedProposition {
     
     /** Get the extraction as string **/
     public String getTripleAsString() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         
         // Write the triple
         for (int j = 0; j < this.getTriple().size(); j++){
@@ -222,7 +222,7 @@ public class AnnotatedProposition {
     
     /** Get factuality as a string in format "(POLARITY, MODALITY)" **/
     public String getFactualityAsString() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append(CHARACTER.LPARENTHESIS);
         if (this.polarity.getType() == Polarity.Type.POSITIVE)
             sb.append(Polarity.ST_PLUS);
@@ -238,7 +238,7 @@ public class AnnotatedProposition {
     }
     
     public String toStringAllAnnotations(){
-       StringBuffer sb = new StringBuffer();
+       StringBuilder sb = new StringBuilder();
         
        // Write the triple
        sb.append(CHARACTER.LPARENTHESIS);
@@ -315,7 +315,7 @@ public class AnnotatedProposition {
      * @return triple's words as a string separated by a space
      */
     public String propositionWordsToString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         // Write the triple
         for (int i = 0; i < this.getTriple().size(); i++){
             for (int j = 0; j < this.getTriple().get(i).getWordList().size(); j++) {
@@ -345,10 +345,10 @@ public class AnnotatedProposition {
      * @return the "aggregation string" for the annotated triple
      */
     public String toAggregationString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         
         // Write the triple
-        IndexedWord word = new IndexedWord();
+        IndexedWord word;
         for (int i = 0; i < this.triple.size(); i++) {
             sb.append(CHARACTER.QUOTATION_MARK);
             for (int j = 0; j< triple.get(i).getWordList().size(); j++) {

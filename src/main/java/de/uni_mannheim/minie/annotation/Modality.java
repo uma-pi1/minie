@@ -30,7 +30,7 @@ import de.uni_mannheim.utils.coreNLP.CoreNLPUtils;
  */
 public class Modality {
     /** Annotations for modality, can be just "CERTAINTY" or "POSSIBILITY" */
-    public static enum Type {CERTAINTY, POSSIBILITY};
+    public enum Type {CERTAINTY, POSSIBILITY}
     
     /** Strings expressing modality types **/
     public static String ST_CERTAINTY = "CERTAINTY";

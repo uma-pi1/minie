@@ -1,14 +1,21 @@
 <img src="https://gkiril.github.io/minie/images/minie_logo.png" align="right" width="150" />
 
-# MinIE - Open Information Extraction system
+# MinIE: Open Information Extraction system
 
-An Open Information Extraction system, providing useful extractions:
-* represents contextual information with semantic annotations
-* identifies and removes words that are considered overly specific
-* high precision/recall 
-* shorter, semantically enriched extractions
+* [Open Information Extraction - brief introduction](#open-information-extraction---brief-introduction)
+* [MinIE - Open Information Extraction system](#minie---open-information-extraction-system)
+* [Version](#version)
+* [Demo](#demo)
+* [MinIE service](#minie-service)
+* [Python wrapper](#python-wrapper)
+* [Resources](#resources)
+* [MinIE in other downstream applications](#minie-in-other-downstream-applications)
+* [Citing](#citing)
 
-## Open Information Extraction (OIE)
+---
+
+## Open Information Extraction - brief introduction
+
 Open Information Extraction (OIE) systems aim to extract unseen relations and their arguments from unstructured text in unsupervised manner. In its simplest form, given a natural language sentence, they extract information in the form of a triple, consisted of subject (S), relation (R) and object (O). 
 
 Suppose we have the following input sentence:
@@ -22,6 +29,18 @@ An OIE system aims to make the following extractions:
 ("AMD"; "is based in"; "U.S.")
 ("AMD"; "is"; "technology company")
 ```
+
+## MinIE - Open Information Extraction system
+
+An Open Information Extraction system, providing useful extractions:
+* represents contextual information with semantic annotations
+* identifies and removes words that are considered overly specific
+* high precision/recall 
+* shorter, semantically enriched extractions
+
+## Version
+
+This is the latest version of MinIE, which may give you different (improved!) results than the original EMNLP-2017 version. The EMNLP-2017 version can be found [here](https://github.com/rgemulla/minie).
 
 ## Demo
 
@@ -85,15 +104,59 @@ MinIE minie = new MinIE(sentence, parser, MinIE.Mode.DICTIONARY, collocationsDic
 
 In `resources/minie-resources/` you can find multi-word dictionaries constructed from WordNet (wn-mwe.txt) and from wiktionary (wiktionary-mw-titles.txt). This will give you some sort of functionality for MinIE-D. The multi-word dictionaries constructed with MinIE-S (as explained in the paper) are not here because of their size. If you want to use them, please refer to the download link in the section "Resources".
 
+## MinIE Service
+
+Code for exposing [MinIE - Open Information Extraction system](https://github.com/gkiril/minie) as a service.
+
+Start with:
+
+```bash
+$ mvn clean compile exec:java
+[..]
+
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ minie-service ---
+MinIE Service
+Mar 06, 2018 8:43:13 PM org.glassfish.grizzly.http.server.NetworkListener start
+INFO: Started listener bound to [localhost:8080]
+Mar 06, 2018 8:43:13 PM org.glassfish.grizzly.http.server.HttpServer start
+INFO: [HttpServer] Started.
+Application started.
+Stop the application using CTRL+C
+```
+
+Use the service with:
+
+```bash
+$ curl 'http://localhost:8080/minie/query' -X POST -d 'Obama visited the white house.' | jq .
+{
+  "facts": [
+    {
+      "subject": "Obama",
+      "predicate": "visited",
+      "object": "white house"
+    }
+  ]
+}
+```
+
+## Python wrapper
+
+You can find a python wrapper for MinIE [here](https://github.com/mmxgn/miniepy). If you want to use MinIE with python, please follow the guidelines provided on the repo's README. 
+
+
 ## Resources
 
 * **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
-* **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D17-1278)
-* **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/wiki-freq-args-rels.zip)
+* **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D/D17/D17-1278.pdf)
+* **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/wiki-freq-args-rels.zip)
 * **Experiments datasets:** datasets from the paper
   * [NYT](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/NYT.zip)
   * [Wiki](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/Wiki.zip)
   * [NYT-10k](https://www.uni-mannheim.de/media/Einrichtungen/dws/Files_Research/Software/MinIE/nyt10k.zip)
+
+## MinIE in other downstream applications
+
+* **Fact Salience:** MinIE is used for the task of "Fact Salience". Details can be found in the paper [*"Facts that Matter"*](http://www.aclweb.org/anthology/D18-1129) by Marco Ponza, Luciano Del Corro, Gerhard Weikum, published on EMNLP 2018.
 
 ## Citing
 If you use MinIE in your work, please cite our paper:
@@ -103,7 +166,7 @@ If you use MinIE in your work, please cite our paper:
   title={MinIE: Minimizing Facts in Open Information Extraction},
   author={Gashteovski, Kiril and Gemulla, Rainer and Del Corro, Luciano},
   booktitle={Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing},
-  pages={2620--2630},
+  pages={2630--2640},
   year={2017}
 }
 ```

@@ -886,31 +886,35 @@ public class MinIE {
      * @param proposition
      * @return true, if the proposition should be pruned, false otherwise
      */
-    public boolean pruneAnnotatedProposition(ObjectArrayList<AnnotatedPhrase> proposition){
+    private boolean pruneAnnotatedProposition(ObjectArrayList<AnnotatedPhrase> proposition){
+        AnnotatedPhrase subj = proposition.get(0);
+        AnnotatedPhrase rel = proposition.get(1);
+
         // If there is no verb in the relation, prune
         // TODO: check why this is happening! In some of these cases, the verb gets deleted for some reason.
         // This happens when CCs are being processed. Empty relations too
-        if (!CoreNLPUtils.verbInList(proposition.get(1).getWordList()))
+        if (!CoreNLPUtils.hasVerb(rel.getWordList()))
             return true;
-        
-        // Empty subject 
-        if (proposition.get(0).getWordList().isEmpty())
+
+        // Empty subject
+        if (subj.getWordList().isEmpty())
             return true;
-        
+
         if (proposition.size() == 3){
+            AnnotatedPhrase obj = proposition.get(2);
             // Check if the object is empty (shouldn't happen, but just in case)
-            if (proposition.get(2).getWordList().isEmpty())
+            if (obj.getWordList().isEmpty())
                 return true;
-            
+
             // The last word of the object
-            IndexedWord w = proposition.get(2).getWordList().get(proposition.get(2).getWordList().size()-1);
-            
-            // If the last word is preposition 
+            IndexedWord w = obj.getWordList().get(obj.getWordList().size()-1);
+
+            // If the last word is preposition
             if (w.tag().equals(POS_TAG.IN) && w.ner().equals(NE_TYPE.NO_NER))
                 return true;
-            
+
             // When the object is consisted of one preposition
-            if (proposition.get(2).getWordList().size() == 1){
+            if (obj.getWordList().size() == 1){
                 // If the object is just one preposition - prune
                 if (w.tag().equals(POS_TAG.IN) || w.tag().equals(POS_TAG.TO)){
                     return true;
@@ -918,13 +922,25 @@ public class MinIE {
             }
             // When the object ends with one of the POS tags: WDT, WP$, WP or WRB
             if (w.tag().equals(POS_TAG.WDT) || w.tag().equals(POS_TAG.WP) ||
-                w.tag().equals(POS_TAG.WP_P) || w.tag().equals(POS_TAG.WRB)){
+                    w.tag().equals(POS_TAG.WP_P) || w.tag().equals(POS_TAG.WRB)){
                 return true;
             }
-            
+
             // Prune if clause modifier detected
             if (this.detectClauseModifier(proposition)){
                 return true;
+            }
+
+            // Prune if there are NERs on both sides of "be" relation
+            // TODO: do this for implicit extractions only?
+            if ((rel.getWordList().size() == 1)) {
+                if (rel.getWordList().get(0).lemma().equals("be")) {
+                    if (subj.isOneNER() && obj.isOneNER()) {
+                        if (!obj.getWordList().get(0).ner().equals(NE_TYPE.MISC)) {
+                            return true;
+                        }
+                    }
+                }
             }
         }
 

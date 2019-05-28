@@ -4,16 +4,18 @@ import de.uni_mannheim.constant.CHARACTER;
 import de.uni_mannheim.constant.SEPARATOR;
 
 /**
- * A class representing the attribution
- * @param attributionPhrase: a phrase containing the words for the attribution
- * @param modality: the modality of the attribution (possibility or certainty)
- * @param polarity: the polarity of the attribution (positive or negative)
- * @param predicateVerb: the predicate verb (as a string in its lemma version)
- *
  * @author Kiril Gashteovski
  */
 
 public class Attribution {
+    /**
+     * A class representing the attribution
+     *
+     * attributionPhrase: a phrase containing the words for the attribution
+     * modality: the modality of the attribution (possibility or certainty)
+     * polarity: the polarity of the attribution (positive or negative)
+     * predicateVerb: the predicate verb (as a string in its lemma version)
+     */
     private AnnotatedPhrase attributionPhrase;
     private Modality.Type modality;
     private Polarity.Type polarity;
@@ -33,8 +35,8 @@ public class Attribution {
     /** Constructor with a given attribution phrase. The modality and polarity are by default 'certainty' and 'positive' 
      *  respectively
      *  
-     *  @param: attributionPhrase: the attribution phrase
-     *  @param: pVerb: the predicate verb (a string) 
+     *  @param attributionPhrase: the attribution phrase
+     *  @param pVerb: the predicate verb (a string)
      */
     public Attribution(AnnotatedPhrase attributionPhrase, String pVerb){
         this.attributionPhrase = attributionPhrase;
@@ -103,7 +105,7 @@ public class Attribution {
     // Write down the attribution in the format (attribution_phrase, predicate, polarity, modality)
     @Override
     public String toString(){
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append(CHARACTER.LPARENTHESIS);
 
         // Append the attribution phrase
@@ -145,7 +147,7 @@ public class Attribution {
     
     /** Return the attribution as a string in format "(Attribution Phrase, (POLARITY, MODALITY)) **/
     public String toStringCompact() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append(CHARACTER.LPARENTHESIS);
 
         // Append the attribution phrase
