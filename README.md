@@ -1,4 +1,4 @@
-<img src="https://gkiril.github.io/minie/images/minie_logo.png" align="right" width="150" />
+<img src="https://uma-pi1.github.io/minie/images/minie_logo.png" align="right" width="150" />
 
 # MinIE: Open Information Extraction system
 
@@ -146,7 +146,7 @@ You can find a python wrapper for MinIE [here](https://github.com/mmxgn/miniepy)
 
 ## Resources
 
-* **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://gkiril.github.io/minie/).
+* **Documentation:** for more thorough documentation for the code, please visit [MinIE's project page](https://uma-pi1.github.io/minie/).
 * **Paper:** _"MinIE: Minimizing Facts in Open Information Extraction"_ - appeared on EMNLP 2017 [[pdf]](http://aclweb.org/anthology/D/D17/D17-1278.pdf)
 * **Dictionary:** Wikipedia: frequent relations and arguments [[zip]](http://dws.informatik.uni-mannheim.de/fileadmin/lehrstuehle/pi1/pi1/minie/wiki-freq-args-rels.zip)
 * **Experiments datasets:** datasets from the paper
