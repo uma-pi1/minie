@@ -106,7 +106,7 @@ In `resources/minie-resources/` you can find multi-word dictionaries constructed
 
 ## MinIE Service
 
-Code for exposing MinIE as a service (written by [Pasquale Minervini](https://github.com/pminervini)).
+Code for exposing MinIE as a service (developed by [Pasquale Minervini](https://github.com/pminervini)).
 
 Start with:
 
