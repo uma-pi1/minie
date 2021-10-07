@@ -31,12 +31,17 @@ public class FactsResource {
 
         List<Fact> facts = new ArrayList<>();
 
-        for (AnnotatedProposition ap: minie.getPropositions()) {
+        for (AnnotatedProposition ap : minie.getPropositions()) {
             List<AnnotatedPhrase> triple = ap.getTriple();
 
-            String s = triple.get(0).toString();
-            String p = triple.get(1).toString();
-            String o = triple.get(2).toString();
+            String s = "";
+            String p = "";
+            String o = "";
+            try {
+                s = triple.get(0).toString();
+                p = triple.get(1).toString();
+                o = triple.get(2).toString();
+            } catch (IndexOutOfBoundsException ignored){}
 
             Fact fact = new Fact(s, p, o);
             facts.add(fact);
